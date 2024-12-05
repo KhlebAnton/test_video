@@ -24,12 +24,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-.video {
+#myCanvas {
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     z-index: 5;
-    object-fit: cover;
+    transition: opacity 1s ease-in-out;
 }
