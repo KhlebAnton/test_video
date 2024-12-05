@@ -5,50 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?ver=2">
 </head>
 
 <body>
     <div class="scr">
         <h1>ghbd</h1>
-        <canvas id="myCanvas"></canvas>
+        <button onclick="video.play()">play</button>
+        <video src="./Comp.mov" autoplay></video>
     </div>
-
     <script>
-        const canvas = document.getElementById('myCanvas'); 
-        const ctx = canvas.getContext('2d'); 
-        const video = document.createElement('video'); 
-        video.src = './Comp.mov'; 
-        // video.loop = true; 
-        video.muted = true; 
-        video.autoplay = false; 
-        // Устанавливаем размеры канваса равными размерам окна браузера 
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight; 
-        // Ждем полной загрузки видео перед началом воспроизведения 
-        video.oncanplaythrough = () => { 
-            video.play().then(() => { 
-                function draw() { 
-                    if (!video.paused && !video.ended) { 
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height); 
-                        requestAnimationFrame(draw); 
-                    } else { 
-                        // Остановить анимацию, если видео закончилось 
-                        return; 
-                    } 
-                } 
-                draw(); 
-            }).catch((error) => console.error(error)); 
-        }; // Обработчик события "ended" 
-        video.addEventListener('ended', () => { 
-            console.log('Видео закончилось!'); 
-            // Можно добавить любые дополнительные действия здесь 
-            canvas.style.opacity ='0';
-            
-            }); 
-            // Обработчик ошибки загрузки видео 
-            video.onerror = (event) => { console.error("Ошибка загрузки видео:", event.target.error); }; 
+        const video = document.querySelector('video');
 
     </script>
 </body>
-
+    
 </html>
